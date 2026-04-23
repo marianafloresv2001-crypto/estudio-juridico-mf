@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudio Jurídico MF | Abog. Mariana Angela Flores Flores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── CSS VARIABLES ─── */
+    :root {
+      --pine:    #1B4332;
+      --pine-light: #2D6A4F;
+      --pine-dark: #0D2B1E;
+      --gold:    #C9A84C;
+      --gold-light: #E8C97E;
+      --gold-dark: #9C7A2E;
+      --white:   #F9F6EF;
+      --off-white: #EDE9DF;
+      --text:    #1C1C1C;
+      --text-muted: #5A5A5A;
+      --radius:  4px;
+      --shadow:  0 8px 40px rgba(0,0,0,0.18);
+    }
+
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--pine-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 0 6vw;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+      background: rgba(13, 43, 30, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .nav-logo svg { width: 42px; height: 42px; flex-shrink: 0; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 2px; }
+    .nav-logo-text .sub { font-size: 0.6rem; font-weight: 500; letter-spacing: 3px; color: rgba(249,246,239,0.7); text-transform: uppercase; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 0.75rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; color: rgba(249,246,239,0.85); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 10px 24px; border: 1px solid var(--gold); border-radius: 2px;
+      font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+      color: var(--gold); background: transparent; cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--pine-dark); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); border-radius: 2px; transition: all 0.3s; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(135deg, rgba(13,43,30,0.91) 0%, rgba(27,67,50,0.82) 40%, rgba(13,43,30,0.78) 100%),
+        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 65%);
+    }
+    .hero-ornament {
+      position: absolute; right: 8vw; top: 50%; transform: translateY(-50%);
+      width: min(360px, 42vw); height: min(360px, 42vw);
+      border: 1px solid rgba(201,168,76,0.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0.6;
+    }
+    .hero-ornament::before {
+      content: ''; position: absolute; inset: 20px;
+      border: 1px solid rgba(201,168,76,0.12); border-radius: 50%;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 120px 6vw 80px;
+      max-width: 700px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold-light); font-weight: 500; margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300; line-height: 1.08;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(249,246,239,0.65); margin-bottom: 36px; letter-spacing: 0.5px;
+    }
+    .hero-abogada {
+      font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 44px;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 15px 38px; background: var(--gold); color: var(--pine-dark);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      border: none; cursor: pointer; border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      padding: 15px 38px; background: transparent; color: var(--white);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+      border: 1px solid rgba(249,246,239,0.45); cursor: pointer; border-radius: 2px;
+      transition: border-color 0.25s, color 0.25s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(249,246,239,0.4);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 100px 6vw; }
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400; line-height: 1.15; color: var(--pine-dark);
+    }
+    .section-title em { font-style: italic; color: var(--pine-light); }
+    .divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 24px 0 40px;
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--pine-dark);
+      padding: 0 6vw;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .stat {
+      padding: 36px 20px;
+      display: flex; flex-direction: column; align-items: center;
+      border-right: 1px solid rgba(201,168,76,0.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 700; color: var(--gold); line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(249,246,239,0.5); margin-top: 6px; text-align: center;
+    }
+
+    /* ─── ABOUT ─── */
+    #nosotros { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%; height: 500px; object-fit: cover;
+      border-radius: var(--radius);
+      filter: grayscale(15%);
+    }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute; bottom: -20px; left: -20px; right: 20px; top: 20px;
+      border: 1px solid rgba(201,168,76,0.35); border-radius: var(--radius); z-index: -1;
+    }
+    .about-badge {
+      position: absolute; bottom: 28px; right: -24px;
+      background: var(--pine); padding: 20px 28px;
+      border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow);
+    }
+    .about-badge .year { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); display: block; }
+    .about-badge .year-label { font-size: 0.65rem; letter-spacing: 2px; color: rgba(249,246,239,0.7); text-transform: uppercase; }
+    .about-text p {
+      font-size: 1rem; line-height: 1.85; color: var(--text-muted);
+      margin-bottom: 18px; font-weight: 300;
+    }
+    .values-list { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .value-item { display: flex; align-items: center; gap: 14px; font-size: 0.9rem; color: var(--text); font-weight: 400; }
+    .value-icon { width: 36px; height: 36px; background: rgba(201,168,76,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .value-icon svg { width: 16px; height: 16px; stroke: var(--gold); }
+
+    /* ─── SCHEDULE ─── */
+    #horarios { background: var(--off-white); }
+    .schedule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .schedule-card {
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .schedule-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .schedule-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+      background: var(--gold);
+    }
+    .schedule-day { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+    .schedule-time { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--pine-dark); }
+    .schedule-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; }
+    .contact-info-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+      margin-top: 48px;
+    }
+    .contact-chip {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--pine); padding: 18px 22px; border-radius: var(--radius);
+    }
+    .contact-chip svg { width: 20px; height: 20px; stroke: var(--gold); flex-shrink: 0; }
+    .contact-chip-text .label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(249,246,239,0.5); }
+    .contact-chip-text .value { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+
+    /* ─── BLOG ─── */
+    #blog { background: var(--white); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+    .blog-card {
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: var(--radius); overflow: hidden;
+      background: var(--white);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .blog-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s; }
+    .blog-card:hover .blog-card-img { transform: scale(1.03); }
+    .blog-card-img-wrap { overflow: hidden; }
+    .blog-card-body { padding: 28px 24px; }
+    .blog-tag {
+      display: inline-block; font-size: 0.6rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 10px;
+      background: rgba(201,168,76,0.1); padding: 4px 10px; border-radius: 2px;
+    }
+    .blog-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--pine-dark); margin-bottom: 12px; line-height: 1.3; }
+    .blog-card-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; font-weight: 300; }
+    .blog-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--off-white); padding-top: 16px; }
+    .blog-date { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; }
+    .blog-read { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(13,43,30,0.75); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--white); max-width: 680px; width: 100%;
+      border-radius: var(--radius); overflow: hidden;
+      transform: translateY(20px); transition: transform 0.3s;
+      max-height: 85vh; overflow-y: auto;
+    }
+    .modal-overlay.active .modal { transform: translateY(0); }
+    .modal-img { width: 100%; height: 240px; object-fit: cover; }
+    .modal-body { padding: 36px 40px; }
+    .modal-tag { font-size: 0.6rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--pine-dark); margin-bottom: 20px; line-height: 1.2; }
+    .modal-text { font-size: 0.92rem; color: var(--text-muted); line-height: 1.9; font-weight: 300; }
+    .modal-close {
+      position: absolute; top: 16px; right: 20px; font-size: 1.6rem; color: var(--white);
+      cursor: pointer; z-index: 10; line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .modal-close:hover { color: var(--gold); }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--pine); padding: 80px 6vw;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+    .cta-banner-text { position: relative; }
+    .cta-banner-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); line-height: 1.2; }
+    .cta-banner-text p { color: rgba(249,246,239,0.6); font-size: 0.9rem; margin-top: 10px; font-weight: 300; }
+    .cta-banner-action { position: relative; flex-shrink: 0; }
+    .whatsapp-btn {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 36px; background: #25D366; color: var(--white);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      border: none; border-radius: 2px; cursor: pointer;
+      transition: background 0.25s, transform 0.2s; white-space: nowrap;
+    }
+    .whatsapp-btn:hover { background: #1fbc5a; transform: translateY(-2px); }
+    .whatsapp-btn svg { width: 20px; height: 20px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--pine-dark); padding: 60px 6vw 32px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+    .footer-brand .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); font-weight: 700; letter-spacing: 2px; }
+    .footer-brand .brand-abog { font-size: 0.7rem; color: rgba(249,246,239,0.45); letter-spacing: 1.5px; margin-top: 4px; margin-bottom: 20px; }
+    .footer-brand p { font-size: 0.85rem; color: rgba(249,246,239,0.45); line-height: 1.75; font-weight: 300; max-width: 300px; }
+    .footer-col h4 { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.85rem; color: rgba(249,246,239,0.5); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(201,168,76,0.1); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 16px; }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(249,246,239,0.3); }
+    .footer-seal { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: rgba(249,246,239,0.25); letter-spacing: 1.5px; }
+
+    /* ─── BACK TO TOP ─── */
+    .back-top {
+      position: fixed; bottom: 28px; right: 28px; z-index: 900;
+      width: 44px; height: 44px; background: var(--gold); border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    }
+    .back-top.visible { opacity: 1; pointer-events: all; }
+    .back-top:hover { transform: translateY(-3px); }
+    .back-top svg { width: 18px; height: 18px; stroke: var(--pine-dark); }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0;
+      position: fixed; top: 72px; left: 0; width: 100%;
+      background: var(--pine-dark); z-index: 999;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 18px 6vw; font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(249,246,239,0.8); border-bottom: 1px solid rgba(201,168,76,0.08);
+      transition: color 0.2s, background 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); background: rgba(201,168,76,0.05); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 60px; }
+      .about-img-wrap { max-width: 500px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-ornament { display: none; }
+      section { padding: 70px 5vw; }
+      .stats-bar { padding: 0 5vw; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .about-badge { right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo">
+    <!-- SVG LOGO -->
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" stroke="#C9A84C" stroke-width="1.5"/>
+      <!-- Balanza -->
+      <line x1="60" y1="28" x2="60" y2="82" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <line x1="34" y1="44" x2="86" y2="44" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <!-- Platos -->
+      <path d="M22 44 Q34 54 46 44" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M74 44 Q86 54 98 44" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <!-- MF letras -->
+      <text x="40" y="100" font-family="serif" font-size="22" fill="#C9A84C" font-weight="700">MF</text>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="brand">Est. Jurídico MF</span>
+      <span class="sub">Abog. Mariana Flores</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#blog">Blog</a>
+  </div>
+  <button class="nav-cta" onclick="window.open('https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">Contáctanos</button>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+  <a href="#horarios" onclick="toggleMenu()">Horarios</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
+  <a href="https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios" target="_blank" style="color:var(--gold);">Contáctanos vía WhatsApp</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament">
+    <svg viewBox="0 0 300 300" width="80%" opacity="0.25">
+      <line x1="150" y1="40" x2="150" y2="230" stroke="#C9A84C" stroke-width="1.5"/>
+      <line x1="60" y1="110" x2="240" y2="110" stroke="#C9A84C" stroke-width="1.5"/>
+      <path d="M30 110 Q90 150 150 110" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+      <path d="M150 110 Q210 150 270 110" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Tarija · Bolivia · Desde 2015</p>
+    <h1>Justicia con <em>Integridad</em><br>y Compromiso</h1>
+    <p class="hero-tagline">Asesoramiento legal confiable, cercano y profesional<br>para proteger sus derechos e intereses.</p>
+    <p class="hero-abogada">Abog. Mariana Angela Flores Flores</p>
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="window.open('https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">Contáctanos</button>
+      <button class="btn-outline" onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'})">Conocer más</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-number">+10</span><span class="stat-label">Años de experiencia</span></div>
+  <div class="stat"><span class="stat-number">+500</span><span class="stat-label">Casos resueltos</span></div>
+  <div class="stat"><span class="stat-number">3</span><span class="stat-label">Áreas de práctica</span></div>
+  <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Compromiso</span></div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="nosotros">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-in">
+      <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=700&q=80" alt="Estudio Jurídico MF - Tarija" />
+      <div class="about-badge">
+        <span class="year">2015</span>
+        <span class="year-label">Fundado</span>
+      </div>
+    </div>
+    <div class="about-text fade-in">
+      <p class="section-label">Nuestra historia</p>
+      <h2 class="section-title">Un estudio fundado en <em>principios</em></h2>
+      <div class="divider"></div>
+      <p>El <strong>Estudio Jurídico MF</strong> fue fundado en la ciudad de Tarija, Bolivia, con la convicción de ofrecer servicios legales de alta calidad, accesibles y cercanos a las personas y empresas que los necesitan.</p>
+      <p>Nuestra directora, la <strong>Abog. Mariana Angela Flores Flores</strong>, es abogada con amplia trayectoria en derecho civil, familiar, laboral y comercial. A lo largo de su carrera ha representado exitosamente a cientos de clientes, aportando soluciones jurídicas claras y estratégicas.</p>
+      <p>Nuestra misión es brindar asesoramiento ético, transparente y eficaz, velando siempre por los mejores intereses de quienes nos confían su representación legal.</p>
+      <div class="values-list">
+        <div class="value-item">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          Integridad y ética profesional
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          Respuesta oportuna y puntual
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          Atención personalizada al cliente
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HORARIOS ─── -->
+<section id="horarios">
+  <p class="section-label fade-in">Atención al cliente</p>
+  <h2 class="section-title fade-in">Horarios de <em>atención</em></h2>
+  <div class="divider fade-in"></div>
+  <div class="schedule-grid">
+    <div class="schedule-card fade-in">
+      <p class="schedule-day">Lunes — Viernes</p>
+      <p class="schedule-time">08:30 — 13:00</p>
+      <p class="schedule-note">Horario de mañana · Presencial</p>
+    </div>
+    <div class="schedule-card fade-in">
+      <p class="schedule-day">Lunes — Viernes</p>
+      <p class="schedule-time">15:00 — 19:00</p>
+      <p class="schedule-note">Horario de tarde · Presencial</p>
+    </div>
+    <div class="schedule-card fade-in">
+      <p class="schedule-day">Sábados</p>
+      <p class="schedule-time">09:00 — 12:00</p>
+      <p class="schedule-note">Solo con cita previa</p>
+    </div>
+  </div>
+  <div class="contact-info-row">
+    <div class="contact-chip fade-in">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.09a16 16 0 0 0 6 6l.45-.45a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 21 17z"/></svg>
+      <div class="contact-chip-text"><span class="label">Teléfono</span><span class="value">+591 70 000 000</span></div>
+    </div>
+    <div class="contact-chip fade-in">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div class="contact-chip-text"><span class="label">Correo electrónico</span><span class="value">contacto@estudiomf.bo</span></div>
+    </div>
+    <div class="contact-chip fade-in">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="contact-chip-text"><span class="label">Dirección</span><span class="value">Tarija, Bolivia</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BLOG ─── -->
+<section id="blog">
+  <p class="section-label fade-in">Información legal</p>
+  <h2 class="section-title fade-in">Blog <em>Jurídico</em></h2>
+  <div class="divider fade-in"></div>
+  <div class="blog-grid" id="blogGrid">
+
+    <!-- Card 1 -->
+    <div class="blog-card fade-in" onclick="openModal('modal1')">
+      <div class="blog-card-img-wrap">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75" alt="Divorcio en Bolivia">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Derecho Familiar · Bolivia</span>
+        <h3 class="blog-card-title">¿Cómo funciona el divorcio en Bolivia? Guía básica 2024</h3>
+        <p class="blog-card-excerpt">El divorcio en Bolivia puede tramitarse de manera voluntaria o contenciosa. Conocé los requisitos, plazos y procedimientos según el Código de las Familias.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">12 enero 2025</span>
+          <span class="blog-read">Leer más →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="blog-card fade-in" onclick="openModal('modal2')">
+      <div class="blog-card-img-wrap">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75" alt="Derechos laborales Bolivia">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Derecho Laboral · Tarija</span>
+        <h3 class="blog-card-title">Tus derechos laborales en Bolivia: lo que todo trabajador debe saber</h3>
+        <p class="blog-card-excerpt">Desde el salario mínimo hasta la liquidación por retiro voluntario, el ordenamiento laboral boliviano protege a los trabajadores. Te explicamos los puntos clave.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">05 febrero 2025</span>
+          <span class="blog-read">Leer más →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="blog-card fade-in" onclick="openModal('modal3')">
+      <div class="blog-card-img-wrap">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=75" alt="Contrato de alquiler">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Derecho Civil · Bolivia</span>
+        <h3 class="blog-card-title">¿Qué debe contener un contrato de alquiler en Bolivia?</h3>
+        <p class="blog-card-excerpt">El contrato de arrendamiento es un documento fundamental. Conocé las cláusulas imprescindibles para protegerte tanto si sos inquilino como propietario.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">20 febrero 2025</span>
+          <span class="blog-read">Leer más →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="blog-card fade-in" onclick="openModal('modal4')">
+      <div class="blog-card-img-wrap">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=600&q=75" alt="Herencia Bolivia">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Sucesiones · Bolivia</span>
+        <h3 class="blog-card-title">¿Cómo se reparte una herencia en Bolivia sin testamento?</h3>
+        <p class="blog-card-excerpt">La sucesión intestada en Bolivia sigue un orden de prelación establecido por ley. Te contamos quiénes tienen derecho y en qué proporción.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">10 marzo 2025</span>
+          <span class="blog-read">Leer más →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="blog-card fade-in" onclick="openModal('modal5')">
+      <div class="blog-card-img-wrap">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1569937036023-a16cb7a7cf50?w=600&q=75" alt="Violencia familiar">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Violencia Familiar · Tarija</span>
+        <h3 class="blog-card-title">Ley 348 contra la violencia: ¿cómo denunciar y qué protecciones existen?</h3>
+        <p class="blog-card-excerpt">La Ley 348 garantiza a las mujeres una vida libre de violencia. Conocé el proceso de denuncia, las medidas de protección y la asistencia legal disponible en Tarija.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">18 marzo 2025</span>
+          <span class="blog-read">Leer más →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="blog-card fade-in" onclick="openModal('modal6')">
+      <div class="blog-card-img-wrap">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=75" alt="IA y Derecho">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Derecho Digital · Mundo</span>
+        <h3 class="blog-card-title">Inteligencia Artificial y el Derecho: ¿qué cambios se vienen a nivel global?</h3>
+        <p class="blog-card-excerpt">La irrupción de la IA plantea nuevos desafíos jurídicos en materia de propiedad intelectual, responsabilidad civil y privacidad. Un análisis desde la perspectiva latinoamericana.</p>
+        <div class="blog-card-footer">
+          <span class="blog-date">02 abril 2025</span>
+          <span class="blog-read">Leer más →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CTA BANNER ─── -->
+<div class="cta-banner">
+  <div class="cta-banner-text fade-in">
+    <h2>¿Necesita asesoramiento legal?<br>Estamos para ayudarle.</h2>
+    <p>Consulta inicial sin costo · Atención en Tarija y alrededores</p>
+  </div>
+  <div class="cta-banner-action fade-in">
+    <button class="whatsapp-btn" onclick="window.open('https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      Contáctanos por WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <p class="brand-name">Estudio Jurídico MF</p>
+      <p class="brand-abog">Abog. Mariana Angela Flores Flores</p>
+      <p>Comprometidos con la justicia, la ética y el servicio a nuestros clientes desde el año 2015 en la ciudad de Tarija, Bolivia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#horarios">Horarios</a></li>
+        <li><a href="#blog">Blog jurídico</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Áreas de práctica</h4>
+      <ul>
+        <li><a href="#">Derecho Familiar</a></li>
+        <li><a href="#">Derecho Civil</a></li>
+        <li><a href="#">Derecho Laboral</a></li>
+        <li><a href="#">Sucesiones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Estudio Jurídico MF · Todos los derechos reservados · Tarija, Bolivia</p>
+    <div class="footer-seal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Abog. Mariana Angela Flores Flores
+    </div>
+  </div>
+</footer>
+
+<!-- ─── BACK TO TOP ─── -->
+<div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</div>
+
+<!-- ─── MODALS ─── -->
+<div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
+  <span class="modal-close" onclick="closeModal('modal1')">×</span>
+  <div class="modal">
+    <img class="modal-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="Divorcio en Bolivia">
+    <div class="modal-body">
+      <p class="modal-tag">Derecho Familiar · Bolivia</p>
+      <h2 class="modal-title">¿Cómo funciona el divorcio en Bolivia? Guía básica 2025</h2>
+      <div class="modal-text">
+        <p>El divorcio en Bolivia está regulado por el <strong>Código de las Familias y del Proceso Familiar</strong> (Ley N° 603). Existen dos vías principales:</p><br>
+        <p><strong>1. Divorcio voluntario (por mutuo acuerdo):</strong> Cuando ambos cónyuges están de acuerdo, pueden tramitarlo ante un Notario de Fe Pública, siempre que no haya hijos menores o incapaces, o que los acuerdos sobre guarda, asistencia familiar y bienes estén definidos. Es el proceso más rápido, puede tomar pocas semanas.</p><br>
+        <p><strong>2. Divorcio contencioso:</strong> Cuando no existe acuerdo entre las partes, se tramita ante el Juez de Partido de Familia. Es necesario presentar la demanda, notificar al cónyuge y llevar el proceso por etapas (conciliación, prueba, sentencia). Puede durar varios meses.</p><br>
+        <p><strong>Documentos básicos requeridos:</strong> Certificado de matrimonio, cédulas de identidad, certificados de nacimiento de los hijos (si los hay), y documentos que acrediten los bienes a dividir.</p><br>
+        <p>Si tiene dudas sobre su caso específico, le recomendamos consultar con nuestra abogada para evaluar cuál es la vía más conveniente para usted.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
+  <span class="modal-close" onclick="closeModal('modal2')">×</span>
+  <div class="modal">
+    <img class="modal-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Derechos laborales Bolivia">
+    <div class="modal-body">
+      <p class="modal-tag">Derecho Laboral · Tarija</p>
+      <h2 class="modal-title">Tus derechos laborales en Bolivia: lo que todo trabajador debe saber</h2>
+      <div class="modal-text">
+        <p>La <strong>Ley General del Trabajo</strong> y sus reglamentos protegen a los trabajadores en Bolivia. Estos son algunos derechos fundamentales:</p><br>
+        <p><strong>Salario Mínimo Nacional:</strong> Ningún trabajador puede percibir menos del salario mínimo establecido por el Estado, que se actualiza anualmente.</p><br>
+        <p><strong>Aguinaldo:</strong> Todo trabajador con más de 3 meses de trabajo tiene derecho a recibir el aguinaldo navideño equivalente a un salario mensual, pagado hasta el 20 de diciembre.</p><br>
+        <p><strong>Vacaciones:</strong> El trabajador tiene derecho a vacaciones remuneradas según su antigüedad: 15 días con 1-4 años, 20 días con 5-9 años, y 30 días con más de 10 años.</p><br>
+        <p><strong>Despido injustificado:</strong> En caso de retiro forzoso sin causa justificada, el empleador debe pagar indemnización equivalente a un salario mensual por cada año trabajado.</p><br>
+        <p><strong>Seguro social:</strong> El empleador está obligado a afiliarte a la Caja Nacional de Salud (CNS) o caja equivalente desde el primer día de trabajo.</p><br>
+        <p>Si cree que sus derechos laborales han sido vulnerados, acuda a un abogado especialista o al Ministerio de Trabajo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
+  <span class="modal-close" onclick="closeModal('modal3')">×</span>
+  <div class="modal">
+    <img class="modal-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80" alt="Contrato de alquiler">
+    <div class="modal-body">
+      <p class="modal-tag">Derecho Civil · Bolivia</p>
+      <h2 class="modal-title">¿Qué debe contener un contrato de alquiler en Bolivia?</h2>
+      <div class="modal-text">
+        <p>El contrato de arrendamiento en Bolivia se rige por el <strong>Código Civil</strong> y la <strong>Ley de Inquilinato</strong>. Para que sea válido y le proteja, debe incluir:</p><br>
+        <p><strong>Identificación de las partes:</strong> Nombres completos, cédulas de identidad del propietario e inquilino.</p><br>
+        <p><strong>Descripción del inmueble:</strong> Dirección exacta, superficie, número de ambientes y estado general.</p><br>
+        <p><strong>Monto del alquiler:</strong> El precio mensual en bolivianos, forma de pago, y si se admiten pagos en moneda extranjera.</p><br>
+        <p><strong>Plazo del contrato:</strong> Duración del arrendamiento, fecha de inicio y fecha de vencimiento.</p><br>
+        <p><strong>Garantía:</strong> Si se exige depósito de garantía, el monto y las condiciones de devolución al finalizar el contrato.</p><br>
+        <p><strong>Uso del inmueble:</strong> Si es de uso habitacional, comercial o mixto.</p><br>
+        <p><strong>Obligaciones de las partes:</strong> Quién paga los servicios básicos, quién se responsabiliza de las reparaciones, etc.</p><br>
+        <p>Un contrato bien redactado evita conflictos futuros. Si necesita asesoramiento para redactar o revisar su contrato, contáctenos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
+  <span class="modal-close" onclick="closeModal('modal4')">×</span>
+  <div class="modal">
+    <img class="modal-img" src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=700&q=80" alt="Herencia Bolivia">
+    <div class="modal-body">
+      <p class="modal-tag">Sucesiones · Bolivia</p>
+      <h2 class="modal-title">¿Cómo se reparte una herencia en Bolivia sin testamento?</h2>
+      <div class="modal-text">
+        <p>Cuando una persona fallece sin dejar testamento en Bolivia, se aplica la <strong>sucesión intestada</strong> regulada por el Código Civil. El patrimonio se distribuye según un orden de prelación:</p><br>
+        <p><strong>1° grado — Hijos:</strong> Los hijos heredan en partes iguales. Si el fallecido era casado, el cónyuge o conviviente también hereda una parte igual a la de cada hijo.</p><br>
+        <p><strong>2° grado — Padres:</strong> A falta de hijos, heredan los padres del fallecido, compartiendo con el cónyuge supérstite.</p><br>
+        <p><strong>3° grado — Hermanos:</strong> Si no hay descendientes ni ascendientes, heredan los hermanos y medios hermanos.</p><br>
+        <p><strong>Cónyuge o conviviente de hecho:</strong> Para que el conviviente herede, debe haber reconocimiento legal de la unión libre (más de 2 años de convivencia estable).</p><br>
+        <p><strong>Trámite de declaratoria de herederos:</strong> Para formalizar la herencia, los herederos deben iniciar un proceso judicial o notarial de declaratoria de herederos, presentando certificados de defunción, nacimiento y documentos del bien.</p><br>
+        <p>Le recomendamos iniciar este trámite a la brevedad para evitar complicaciones con el registro de bienes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
+  <span class="modal-close" onclick="closeModal('modal5')">×</span>
+  <div class="modal">
+    <img class="modal-img" src="https://images.unsplash.com/photo-1569937036023-a16cb7a7cf50?w=700&q=80" alt="Violencia familiar Ley 348">
+    <div class="modal-body">
+      <p class="modal-tag">Violencia Familiar · Tarija</p>
+      <h2 class="modal-title">Ley 348 contra la violencia: ¿cómo denunciar y qué protecciones existen?</h2>
+      <div class="modal-text">
+        <p>La <strong>Ley N° 348 — Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia</strong> es una de las normativas más importantes en Bolivia para proteger a las víctimas de violencia de género y familiar.</p><br>
+        <p><strong>¿Dónde denunciar en Tarija?</strong><br>
+        — FELCV (Fuerza Especial de Lucha Contra la Violencia)<br>
+        — Fiscalía de Materia especializada en violencia<br>
+        — SLIM (Servicio Legal Integral Municipal) — atención gratuita<br>
+        — Defensoría de la Niñez y Adolescencia</p><br>
+        <p><strong>Medidas de protección inmediata:</strong> Una vez presentada la denuncia, el fiscal puede solicitar al juez medidas de protección como: alejamiento del agresor del domicilio, prohibición de acercamiento, y custodia provisional de los hijos.</p><br>
+        <p><strong>Tipos de violencia contemplados:</strong> Física, psicológica, sexual, económica, laboral, simbólica y digital.</p><br>
+        <p><strong>Importante:</strong> No esperes a que la situación empeore. Cualquier forma de violencia es suficiente para hacer una denuncia. Puedes llamar a la línea 800-10-0200 (gratuita, 24h) para orientación.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
+  <span class="modal-close" onclick="closeModal('modal6')">×</span>
+  <div class="modal">
+    <img class="modal-img" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80" alt="IA y Derecho">
+    <div class="modal-body">
+      <p class="modal-tag">Derecho Digital · Mundo</p>
+      <h2 class="modal-title">Inteligencia Artificial y el Derecho: ¿qué cambios se vienen a nivel global?</h2>
+      <div class="modal-text">
+        <p>La expansión de la <strong>Inteligencia Artificial (IA)</strong> está generando nuevos debates jurídicos en todo el mundo, y Latinoamérica no es la excepción.</p><br>
+        <p><strong>Propiedad intelectual:</strong> ¿Quién es el autor de una obra creada por una IA? Los sistemas actuales de copyright no contemplan esta posibilidad de manera clara. Países como Estados Unidos y la Unión Europea ya debaten reformas legislativas.</p><br>
+        <p><strong>Responsabilidad civil:</strong> Si un sistema de IA causa un daño (por ejemplo, un auto autónomo en un accidente), ¿quién responde: el fabricante, el operador, o la IA en sí? Este es uno de los grandes desafíos pendientes.</p><br>
+        <p><strong>Privacidad y datos personales:</strong> Los modelos de IA se entrenan con enormes cantidades de datos, lo que puede vulnerar derechos de privacidad. El Reglamento General de Protección de Datos (GDPR) europeo ha sido pionero en este tema.</p><br>
+        <p><strong>¿Y Bolivia?</strong> Aún no existe legislación específica sobre IA en nuestro país, pero el Código de Procedimiento Penal y la Ley de Telecomunicaciones pueden aplicarse en casos digitales. Es un área que evolucionará rápidamente en los próximos años.</p><br>
+        <p>Como profesionales del derecho, nos mantenemos actualizados sobre estos desarrollos para asesorar mejor a nuestros clientes frente a los retos del mundo digital.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── JAVASCRIPT ─── -->
+<script>
+  /* -- Hamburger -- */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* -- Navbar scroll effect -- */
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(13,43,30,0.98)'
+      : 'rgba(13,43,30,0.92)';
+
+    const bt = document.getElementById('backTop');
+    bt.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* -- Fade-in on scroll -- */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  /* -- Modals -- */
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e, id) {
+    if (e.target === document.getElementById(id)) closeModal(id);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id));
+  });
+</script>
+</body>
+</html>
