@@ -80,7 +80,7 @@
       position: absolute; inset: 0; z-index: 0;
       background:
         linear-gradient(135deg, rgba(13,43,30,0.91) 0%, rgba(27,67,50,0.82) 40%, rgba(13,43,30,0.78) 100%),
-        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80') center/cover no-repeat;
+        url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
     }
     .hero-bg::after {
       content: '';
@@ -412,17 +412,24 @@
 <!-- ─── NAVBAR ─── -->
 <nav id="navbar">
   <a href="#inicio" class="nav-logo">
-    <!-- SVG LOGO -->
-    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="58" stroke="#C9A84C" stroke-width="1.5"/>
-      <!-- Balanza -->
-      <line x1="60" y1="28" x2="60" y2="82" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="34" y1="44" x2="86" y2="44" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-      <!-- Platos -->
-      <path d="M22 44 Q34 54 46 44" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-      <path d="M74 44 Q86 54 98 44" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-      <!-- MF letras -->
-      <text x="40" y="100" font-family="serif" font-size="22" fill="#C9A84C" font-weight="700">MF</text>
+    <!-- SVG LOGO fiel al branding real -->
+    <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+      <!-- Balanza: poste vertical -->
+      <line x1="55" y1="14" x2="55" y2="72" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <!-- Base triángulo -->
+      <path d="M42 72 L55 72 L68 72" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <path d="M46 72 L42 78 L68 78 L64 72" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.15)"/>
+      <!-- Barra horizontal con remate -->
+      <line x1="28" y1="28" x2="82" y2="28" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="55" cy="28" r="3" fill="#C9A84C"/>
+      <!-- Cadenas platos -->
+      <line x1="28" y1="28" x2="28" y2="40" stroke="#C9A84C" stroke-width="1.4" stroke-dasharray="2,1"/>
+      <line x1="82" y1="28" x2="82" y2="40" stroke="#C9A84C" stroke-width="1.4" stroke-dasharray="2,1"/>
+      <!-- Platos curvos -->
+      <path d="M16 40 Q28 50 40 40" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M70 40 Q82 50 94 40" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <!-- MF letras grandes tipo marca -->
+      <text x="18" y="100" font-family="Georgia,serif" font-size="26" fill="#C9A84C" font-weight="700" letter-spacing="2">MF</text>
     </svg>
     <div class="nav-logo-text">
       <span class="brand">Est. Jurídico MF</span>
@@ -433,8 +440,17 @@
     <a href="#nosotros">Nosotros</a>
     <a href="#horarios">Horarios</a>
     <a href="#blog">Blog</a>
+    <a href="https://www.instagram.com/estudiojurídico_mf_bo?igsh=MXNxenFlMXJreTJpcg==" target="_blank" title="Instagram" style="display:flex;align-items:center;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.facebook.com/share/1anoXwjPyi/" target="_blank" title="Facebook" style="display:flex;align-items:center;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@estudiojurídico_mf?_r=1&_t=ZS-95msuvkjozg" target="_blank" title="TikTok" style="display:flex;align-items:center;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+    </a>
   </div>
-  <button class="nav-cta" onclick="window.open('https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">Contáctanos</button>
+  <button class="nav-cta" onclick="window.open('https://wa.me/59173480215?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">Contáctanos</button>
   <div class="hamburger" id="ham" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -445,7 +461,7 @@
   <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
   <a href="#horarios" onclick="toggleMenu()">Horarios</a>
   <a href="#blog" onclick="toggleMenu()">Blog</a>
-  <a href="https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios" target="_blank" style="color:var(--gold);">Contáctanos vía WhatsApp</a>
+  <a href="https://wa.me/59173480215?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios" target="_blank" style="color:var(--gold);">Contáctanos vía WhatsApp</a>
 </div>
 
 <!-- ─── HERO ─── -->
@@ -460,12 +476,12 @@
     </svg>
   </div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Tarija · Bolivia · Desde 2015</p>
+    <p class="hero-eyebrow">Tarija · Bolivia · Desde 2024</p>
     <h1>Justicia con <em>Integridad</em><br>y Compromiso</h1>
     <p class="hero-tagline">Asesoramiento legal confiable, cercano y profesional<br>para proteger sus derechos e intereses.</p>
     <p class="hero-abogada">Abog. Mariana Angela Flores Flores</p>
     <div class="hero-buttons">
-      <button class="btn-primary" onclick="window.open('https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">Contáctanos</button>
+      <button class="btn-primary" onclick="window.open('https://wa.me/59173480215?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">Contáctanos</button>
       <button class="btn-outline" onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'})">Conocer más</button>
     </div>
   </div>
@@ -487,9 +503,9 @@
 <section id="nosotros">
   <div class="about-grid">
     <div class="about-img-wrap fade-in">
-      <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=700&q=80" alt="Estudio Jurídico MF - Tarija" />
+      <img src="logo-hero.jpg" alt="Estudio Jurídico MF - Tarija" style="object-fit: contain; background: var(--pine-dark);" />
       <div class="about-badge">
-        <span class="year">2015</span>
+        <span class="year">2024</span>
         <span class="year-label">Fundado</span>
       </div>
     </div>
@@ -498,8 +514,8 @@
       <h2 class="section-title">Un estudio fundado en <em>principios</em></h2>
       <div class="divider"></div>
       <p>El <strong>Estudio Jurídico MF</strong> fue fundado en la ciudad de Tarija, Bolivia, con la convicción de ofrecer servicios legales de alta calidad, accesibles y cercanos a las personas y empresas que los necesitan.</p>
-      <p>Nuestra directora, la <strong>Abog. Mariana Angela Flores Flores</strong>, es abogada con amplia trayectoria en derecho civil, familiar, laboral y comercial. A lo largo de su carrera ha representado exitosamente a cientos de clientes, aportando soluciones jurídicas claras y estratégicas.</p>
-      <p>Nuestra misión es brindar asesoramiento ético, transparente y eficaz, velando siempre por los mejores intereses de quienes nos confían su representación legal.</p>
+      <p>Nuestra directora, la <strong>Abog. Mariana Angela Flores Flores</strong>, es abogada especialista en derecho civil, trámites de propiedad y derecho constitucional. A lo largo de su carrera ha representado exitosamente a cientos de clientes, aportando soluciones jurídicas claras y estrategicas.</p>
+      <p>Nuestra misión es brindar asesoramiento ético, transparente y eficaz, velando siempre por los mejores intereses de quienes nos confian su representación legal.</p>
       <div class="values-list">
         <div class="value-item">
           <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -543,11 +559,11 @@
   <div class="contact-info-row">
     <div class="contact-chip fade-in">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.09a16 16 0 0 0 6 6l.45-.45a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 21 17z"/></svg>
-      <div class="contact-chip-text"><span class="label">Teléfono</span><span class="value">+591 70 000 000</span></div>
+      <div class="contact-chip-text"><span class="label">Teléfono / WhatsApp</span><span class="value">+591 73 480 215</span></div>
     </div>
     <div class="contact-chip fade-in">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      <div class="contact-chip-text"><span class="label">Correo electrónico</span><span class="value">contacto@estudiomf.bo</span></div>
+      <div class="contact-chip-text"><span class="label">Correo electrónico</span><span class="value">lawcabinet.bo@gmail.com</span></div>
     </div>
     <div class="contact-chip fade-in">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -566,12 +582,12 @@
     <!-- Card 1 -->
     <div class="blog-card fade-in" onclick="openModal('modal1')">
       <div class="blog-card-img-wrap">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75" alt="Divorcio en Bolivia">
+        <img class="blog-card-img" src="https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Divorcio en Bolivia">
       </div>
       <div class="blog-card-body">
         <span class="blog-tag">Derecho Familiar · Bolivia</span>
         <h3 class="blog-card-title">¿Cómo funciona el divorcio en Bolivia? Guía básica 2024</h3>
-        <p class="blog-card-excerpt">El divorcio en Bolivia puede tramitarse de manera voluntaria o contenciosa. Conocé los requisitos, plazos y procedimientos según el Código de las Familias.</p>
+        <p class="blog-card-excerpt">El divorcio en Bolivia puede tramitarse de manera voluntaria o contenciosa. Conozca los requisitos, plazos y procedimientos según el Código de las Familias.</p>
         <div class="blog-card-footer">
           <span class="blog-date">12 enero 2025</span>
           <span class="blog-read">Leer más →</span>
@@ -582,12 +598,12 @@
     <!-- Card 2 -->
     <div class="blog-card fade-in" onclick="openModal('modal2')">
       <div class="blog-card-img-wrap">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75" alt="Derechos laborales Bolivia">
+        <img class="blog-card-img" src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Derechos laborales Bolivia">
       </div>
       <div class="blog-card-body">
         <span class="blog-tag">Derecho Laboral · Tarija</span>
         <h3 class="blog-card-title">Tus derechos laborales en Bolivia: lo que todo trabajador debe saber</h3>
-        <p class="blog-card-excerpt">Desde el salario mínimo hasta la liquidación por retiro voluntario, el ordenamiento laboral boliviano protege a los trabajadores. Te explicamos los puntos clave.</p>
+        <p class="blog-card-excerpt">Desde el salario mínimo hasta la liquidación por retiro voluntario, el ordenamiento laboral boliviano protege a los trabajadores. Le explicamos los puntos clave.</p>
         <div class="blog-card-footer">
           <span class="blog-date">05 febrero 2025</span>
           <span class="blog-read">Leer más →</span>
@@ -598,12 +614,12 @@
     <!-- Card 3 -->
     <div class="blog-card fade-in" onclick="openModal('modal3')">
       <div class="blog-card-img-wrap">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=75" alt="Contrato de alquiler">
+        <img class="blog-card-img" src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Contrato de alquiler">
       </div>
       <div class="blog-card-body">
         <span class="blog-tag">Derecho Civil · Bolivia</span>
         <h3 class="blog-card-title">¿Qué debe contener un contrato de alquiler en Bolivia?</h3>
-        <p class="blog-card-excerpt">El contrato de arrendamiento es un documento fundamental. Conocé las cláusulas imprescindibles para protegerte tanto si sos inquilino como propietario.</p>
+        <p class="blog-card-excerpt">El contrato de arrendamiento es un documento fundamental. Conozca las cláusulas imprescindibles para protegerte tanto si usted es inquilino como propietario.</p>
         <div class="blog-card-footer">
           <span class="blog-date">20 febrero 2025</span>
           <span class="blog-read">Leer más →</span>
@@ -614,12 +630,12 @@
     <!-- Card 4 -->
     <div class="blog-card fade-in" onclick="openModal('modal4')">
       <div class="blog-card-img-wrap">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=600&q=75" alt="Herencia Bolivia">
+        <img class="blog-card-img" src="https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Herencia Bolivia">
       </div>
       <div class="blog-card-body">
         <span class="blog-tag">Sucesiones · Bolivia</span>
         <h3 class="blog-card-title">¿Cómo se reparte una herencia en Bolivia sin testamento?</h3>
-        <p class="blog-card-excerpt">La sucesión intestada en Bolivia sigue un orden de prelación establecido por ley. Te contamos quiénes tienen derecho y en qué proporción.</p>
+        <p class="blog-card-excerpt">La sucesión intestada en Bolivia sigue un orden de prelación establecido por ley. Le informamos quiénes tienen derecho y en qué proporción.</p>
         <div class="blog-card-footer">
           <span class="blog-date">10 marzo 2025</span>
           <span class="blog-read">Leer más →</span>
@@ -630,12 +646,12 @@
     <!-- Card 5 -->
     <div class="blog-card fade-in" onclick="openModal('modal5')">
       <div class="blog-card-img-wrap">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1569937036023-a16cb7a7cf50?w=600&q=75" alt="Violencia familiar">
+        <img class="blog-card-img" src="https://images.pexels.com/photos/6169659/pexels-photo-6169659.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Violencia familiar">
       </div>
       <div class="blog-card-body">
         <span class="blog-tag">Violencia Familiar · Tarija</span>
         <h3 class="blog-card-title">Ley 348 contra la violencia: ¿cómo denunciar y qué protecciones existen?</h3>
-        <p class="blog-card-excerpt">La Ley 348 garantiza a las mujeres una vida libre de violencia. Conocé el proceso de denuncia, las medidas de protección y la asistencia legal disponible en Tarija.</p>
+        <p class="blog-card-excerpt">La Ley 348 garantiza a las mujeres una vida libre de violencia. Conozca el proceso de denuncia, las medidas de protección y la asistencia legal disponible en Tarija.</p>
         <div class="blog-card-footer">
           <span class="blog-date">18 marzo 2025</span>
           <span class="blog-read">Leer más →</span>
@@ -646,7 +662,7 @@
     <!-- Card 6 -->
     <div class="blog-card fade-in" onclick="openModal('modal6')">
       <div class="blog-card-img-wrap">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=75" alt="IA y Derecho">
+        <img class="blog-card-img" src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IA y Derecho">
       </div>
       <div class="blog-card-body">
         <span class="blog-tag">Derecho Digital · Mundo</span>
@@ -669,7 +685,7 @@
     <p>Consulta inicial sin costo · Atención en Tarija y alrededores</p>
   </div>
   <div class="cta-banner-action fade-in">
-    <button class="whatsapp-btn" onclick="window.open('https://wa.me/59170000000?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">
+    <button class="whatsapp-btn" onclick="window.open('https://wa.me/59173480215?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios','_blank')">
       <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
       Contáctanos por WhatsApp
     </button>
@@ -682,7 +698,21 @@
     <div class="footer-brand">
       <p class="brand-name">Estudio Jurídico MF</p>
       <p class="brand-abog">Abog. Mariana Angela Flores Flores</p>
-      <p>Comprometidos con la justicia, la ética y el servicio a nuestros clientes desde el año 2015 en la ciudad de Tarija, Bolivia.</p>
+      <p>Comprometidos con la justicia, la ética y el servicio a nuestros clientes desde el año 2024 en la ciudad de Tarija, Bolivia.</p>
+      <div style="display:flex;gap:14px;margin-top:20px;">
+        <a href="https://www.instagram.com/estudiojurídico_mf_bo?igsh=MXNxenFlMXJreTJpcg==" target="_blank" style="color:rgba(249,246,239,0.4);transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(249,246,239,0.4)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1anoXwjPyi/" target="_blank" style="color:rgba(249,246,239,0.4);transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(249,246,239,0.4)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@estudiojurídico_mf?_r=1&_t=ZS-95msuvkjozg" target="_blank" style="color:rgba(249,246,239,0.4);transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(249,246,239,0.4)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
+        </a>
+        <a href="https://wa.me/59173480215" target="_blank" style="color:rgba(249,246,239,0.4);transition:color 0.2s;" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(249,246,239,0.4)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer-col">
       <h4>Navegación</h4>
@@ -694,12 +724,20 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Áreas de práctica</h4>
+      <h4>Areas de práctica</h4>
       <ul>
-        <li><a href="#">Derecho Familiar</a></li>
         <li><a href="#">Derecho Civil</a></li>
-        <li><a href="#">Derecho Laboral</a></li>
-        <li><a href="#">Sucesiones</a></li>
+        <li><a href="#">Trámites de Propiedad</a></li>
+        <li><a href="#">Derecho Constitucional</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Redes sociales</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/estudiojurídico_mf_bo?igsh=MXNxenFlMXJreTJpcg==" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1anoXwjPyi/" target="_blank">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@estudiojurídico_mf?_r=1&_t=ZS-95msuvkjozg" target="_blank">TikTok</a></li>
+        <li><a href="https://wa.me/59173480215?text=Hola,%20me%20gustaria%20obtener%20informacion%20sobre%20sus%20servicios" target="_blank">WhatsApp</a></li>
       </ul>
     </div>
   </div>
@@ -721,7 +759,7 @@
 <div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
   <span class="modal-close" onclick="closeModal('modal1')">×</span>
   <div class="modal">
-    <img class="modal-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="Divorcio en Bolivia">
+    <img class="modal-img" src="https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Divorcio en Bolivia">
     <div class="modal-body">
       <p class="modal-tag">Derecho Familiar · Bolivia</p>
       <h2 class="modal-title">¿Cómo funciona el divorcio en Bolivia? Guía básica 2025</h2>
@@ -739,7 +777,7 @@
 <div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
   <span class="modal-close" onclick="closeModal('modal2')">×</span>
   <div class="modal">
-    <img class="modal-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Derechos laborales Bolivia">
+    <img class="modal-img" src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Derechos laborales Bolivia">
     <div class="modal-body">
       <p class="modal-tag">Derecho Laboral · Tarija</p>
       <h2 class="modal-title">Tus derechos laborales en Bolivia: lo que todo trabajador debe saber</h2>
@@ -759,7 +797,7 @@
 <div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
   <span class="modal-close" onclick="closeModal('modal3')">×</span>
   <div class="modal">
-    <img class="modal-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80" alt="Contrato de alquiler">
+    <img class="modal-img" src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contrato de alquiler">
     <div class="modal-body">
       <p class="modal-tag">Derecho Civil · Bolivia</p>
       <h2 class="modal-title">¿Qué debe contener un contrato de alquiler en Bolivia?</h2>
@@ -781,7 +819,7 @@
 <div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
   <span class="modal-close" onclick="closeModal('modal4')">×</span>
   <div class="modal">
-    <img class="modal-img" src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=700&q=80" alt="Herencia Bolivia">
+    <img class="modal-img" src="https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Herencia Bolivia">
     <div class="modal-body">
       <p class="modal-tag">Sucesiones · Bolivia</p>
       <h2 class="modal-title">¿Cómo se reparte una herencia en Bolivia sin testamento?</h2>
@@ -801,7 +839,7 @@
 <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
   <span class="modal-close" onclick="closeModal('modal5')">×</span>
   <div class="modal">
-    <img class="modal-img" src="https://images.unsplash.com/photo-1569937036023-a16cb7a7cf50?w=700&q=80" alt="Violencia familiar Ley 348">
+    <img class="modal-img" src="https://images.pexels.com/photos/6169659/pexels-photo-6169659.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Violencia familiar Ley 348">
     <div class="modal-body">
       <p class="modal-tag">Violencia Familiar · Tarija</p>
       <h2 class="modal-title">Ley 348 contra la violencia: ¿cómo denunciar y qué protecciones existen?</h2>
@@ -814,7 +852,7 @@
         — Defensoría de la Niñez y Adolescencia</p><br>
         <p><strong>Medidas de protección inmediata:</strong> Una vez presentada la denuncia, el fiscal puede solicitar al juez medidas de protección como: alejamiento del agresor del domicilio, prohibición de acercamiento, y custodia provisional de los hijos.</p><br>
         <p><strong>Tipos de violencia contemplados:</strong> Física, psicológica, sexual, económica, laboral, simbólica y digital.</p><br>
-        <p><strong>Importante:</strong> No esperes a que la situación empeore. Cualquier forma de violencia es suficiente para hacer una denuncia. Puedes llamar a la línea 800-10-0200 (gratuita, 24h) para orientación.</p>
+        <p><strong>Importante:</strong> No espere a que la situación empeore. Cualquier forma de violencia es suficiente para hacer una denuncia. Puede llamar a la línea 800-10-0200 (gratuita, 24h) para orientación.</p>
       </div>
     </div>
   </div>
@@ -823,7 +861,7 @@
 <div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
   <span class="modal-close" onclick="closeModal('modal6')">×</span>
   <div class="modal">
-    <img class="modal-img" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80" alt="IA y Derecho">
+    <img class="modal-img" src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=700" alt="IA y Derecho">
     <div class="modal-body">
       <p class="modal-tag">Derecho Digital · Mundo</p>
       <h2 class="modal-title">Inteligencia Artificial y el Derecho: ¿qué cambios se vienen a nivel global?</h2>
