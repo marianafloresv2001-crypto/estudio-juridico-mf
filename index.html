@@ -103,7 +103,7 @@
       position:absolute;inset:0;z-index:0;
       background-image:
         linear-gradient(135deg,rgba(13,61,42,.93) 0%,rgba(13,61,42,.82) 50%,rgba(13,61,42,.72) 100%),
-        url('https://images.unsplash.com/photo-1479142506502-19583a966246?w=1600&q=80&auto=format');
+        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80&auto=format&fit=crop');
       background-size:cover;background-position:center;background-repeat:no-repeat;
     }
     .hero-bg::after{
@@ -334,7 +334,7 @@
 <!-- ══ NAVBAR ══ -->
 <nav id="nav">
   <a href="#inicio" class="nav-logo" aria-label="Inicio - Estudio Jurídico MF">
-    <img src="foto_de_perfil.png" alt="Logo Estudio Jurídico MF" width="42" height="42"/>
+    <img src="logo-hero.jpg" alt="Logo Estudio Jurídico MF" width="42" height="42"/>
     <div class="nav-brand">
       <span class="nb">Estudio Jurídico MF</span>
       <span class="ns">Abog. Mariana Angela Flores Flores</span>
@@ -393,7 +393,7 @@
     </div>
   </div>
   <div class="hero-deco" aria-hidden="true">
-    <img src="foto_de_perfil.png" alt="" width="400" height="400"/>
+    <img src="logo-hero.jpg" alt="" width="400" height="400"/>
   </div>
   <div class="scroll-hint" aria-hidden="true"><div class="scroll-bar"></div><span>Scroll</span></div>
 </section>
@@ -402,7 +402,7 @@
 <section id="nosotros" aria-labelledby="nosotros-title">
   <div class="about-g">
     <div class="about-img fd">
-      <img src="foto_de_perfil.png" alt="Logo oficial Estudio Jurídico MF Tarija Bolivia" width="500" height="460"/>
+      <img src="logo-hero.jpg" alt="Logo oficial Estudio Jurídico MF Tarija Bolivia" width="500" height="460"/>
       <div class="about-badge">
         <span class="yr">2026</span>
         <span class="yl">Fundado</span>
@@ -421,6 +421,48 @@
         <div class="val"><div class="val-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>Atención personalizada al cliente</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══ BLOG ══ -->
+<section id="blog" aria-labelledby="blog-title">
+  <div class="blog-hdr">
+    <div class="fd">
+      <p class="s-label">Información legal</p>
+      <h2 class="s-title" id="blog-title">Blog <em>Jurídico</em></h2>
+    </div>
+  </div>
+  <div class="blog-g" style="grid-template-columns:repeat(3,1fr)">
+    <article class="blog-c fd" onclick="openMo('bm1')" role="button" tabindex="0" aria-label="Leer artículo sobre herencia sin testamento">
+      <div class="blog-img-w"><img class="blog-img" src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=600&q=80&auto=format&fit=crop" alt="Herencia sin testamento en Bolivia" loading="lazy" width="600" height="400"/></div>
+      <div class="blog-body">
+        <span class="blog-tag">Sucesiones · Bolivia</span>
+        <h3 class="blog-t">¿Cómo se inicia una herencia sin testamento en Bolivia?</h3>
+        <p class="blog-ex">Cuando alguien fallece sin testamento, la ley establece quiénes heredan y cómo. Le explicamos el proceso paso a paso en Bolivia.</p>
+        <div class="blog-ft"><span class="blog-date">Enero 2026</span><span class="blog-read">Leer más →</span></div>
+      </div>
+    </article>
+    <article class="blog-c fd" onclick="openMo('bm2')" role="button" tabindex="0" aria-label="Leer artículo sobre registro de marca en Bolivia">
+      <div class="blog-img-w"><img class="blog-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80&auto=format&fit=crop" alt="Registro de marca en Bolivia" loading="lazy" width="600" height="400"/></div>
+      <div class="blog-body">
+        <span class="blog-tag">Propiedad Intelectual · Bolivia</span>
+        <h3 class="blog-t">¿Cómo registro mi marca en Bolivia? Guía 2026</h3>
+        <p class="blog-ex">Registrar su marca es el primer paso para proteger su negocio. Conozca el proceso ante SENAPI, costos, plazos y requisitos actualizados.</p>
+        <div class="blog-ft"><span class="blog-date">Febrero 2026</span><span class="blog-read">Leer más →</span></div>
+      </div>
+    </article>
+    <article class="blog-c fd" onclick="openMo('bm3')" role="button" tabindex="0" aria-label="Leer artículo sobre contratos y tipo de cambio">
+      <div class="blog-img-w"><img class="blog-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80&auto=format&fit=crop" alt="Contratos y tipo de cambio Bolivia 2026" loading="lazy" width="600" height="400"/></div>
+      <div class="blog-body">
+        <span class="blog-tag">Derecho Comercial · Bolivia 2026</span>
+        <h3 class="blog-t">¿Cómo cobrar contratos con el nuevo tipo de cambio en Bolivia?</h3>
+        <p class="blog-ex">La variación del tipo de cambio en Bolivia afecta directamente los contratos en dólares. Sepa cómo protegerse legalmente y qué cláusulas incluir.</p>
+        <div class="blog-ft"><span class="blog-date">Marzo 2026</span><span class="blog-read">Leer más →</span></div>
+      </div>
+    </article>
+  </div>
+  <div class="blog-cta fd">
+    <button class="btn-p" onclick="scrollTo('agendar')">Agendar consulta ahora</button>
   </div>
 </section>
 
@@ -528,47 +570,6 @@
   </div>
 </section>
 
-<!-- ══ BLOG ══ -->
-<section id="blog" aria-labelledby="blog-title">
-  <div class="blog-hdr">
-    <div class="fd">
-      <p class="s-label">Información legal</p>
-      <h2 class="s-title" id="blog-title">Blog <em>Jurídico</em></h2>
-    </div>
-  </div>
-  <div class="blog-g" style="grid-template-columns:repeat(3,1fr)">
-    <article class="blog-c fd" onclick="openMo('bm1')" role="button" tabindex="0" aria-label="Leer artículo sobre herencia sin testamento">
-      <div class="blog-img-w"><img class="blog-img" src="https://picsum.photos/seed/herencia26/600/400" alt="Herencia sin testamento en Bolivia" loading="lazy" width="600" height="400"/></div>
-      <div class="blog-body">
-        <span class="blog-tag">Sucesiones · Bolivia</span>
-        <h3 class="blog-t">¿Cómo se inicia una herencia sin testamento en Bolivia?</h3>
-        <p class="blog-ex">Cuando alguien fallece sin testamento, la ley establece quiénes heredan y cómo. Le explicamos el proceso paso a paso en Bolivia.</p>
-        <div class="blog-ft"><span class="blog-date">Enero 2026</span><span class="blog-read">Leer más →</span></div>
-      </div>
-    </article>
-    <article class="blog-c fd" onclick="openMo('bm2')" role="button" tabindex="0" aria-label="Leer artículo sobre registro de marca en Bolivia">
-      <div class="blog-img-w"><img class="blog-img" src="https://picsum.photos/seed/marca26/600/400" alt="Registro de marca en Bolivia" loading="lazy" width="600" height="400"/></div>
-      <div class="blog-body">
-        <span class="blog-tag">Propiedad Intelectual · Bolivia</span>
-        <h3 class="blog-t">¿Cómo registro mi marca en Bolivia? Guía 2026</h3>
-        <p class="blog-ex">Registrar su marca es el primer paso para proteger su negocio. Conozca el proceso ante SENAPI, costos, plazos y requisitos actualizados.</p>
-        <div class="blog-ft"><span class="blog-date">Febrero 2026</span><span class="blog-read">Leer más →</span></div>
-      </div>
-    </article>
-    <article class="blog-c fd" onclick="openMo('bm3')" role="button" tabindex="0" aria-label="Leer artículo sobre contratos y tipo de cambio">
-      <div class="blog-img-w"><img class="blog-img" src="https://picsum.photos/seed/tipocambio26/600/400" alt="Contratos y tipo de cambio Bolivia 2026" loading="lazy" width="600" height="400"/></div>
-      <div class="blog-body">
-        <span class="blog-tag">Derecho Comercial · Bolivia 2026</span>
-        <h3 class="blog-t">¿Cómo cobrar contratos con el nuevo tipo de cambio en Bolivia?</h3>
-        <p class="blog-ex">La variación del tipo de cambio en Bolivia afecta directamente los contratos en dólares. Sepa cómo protegerse legalmente y qué cláusulas incluir.</p>
-        <div class="blog-ft"><span class="blog-date">Marzo 2026</span><span class="blog-read">Leer más →</span></div>
-      </div>
-    </article>
-  </div>
-  <div class="blog-cta fd">
-    <button class="btn-p" onclick="scrollTo('agendar')">Agendar consulta ahora</button>
-  </div>
-</section>
 
 <!-- ══ CTA ══ -->
 <div class="cta-b" role="complementary" aria-label="Llamada a la acción">
@@ -616,7 +617,7 @@
 <div class="mo" id="bm1" onclick="closeOut(event,'bm1')" role="dialog" aria-modal="true" aria-label="Herencia sin testamento en Bolivia">
   <button class="mo-x" onclick="closeMo('bm1')" aria-label="Cerrar">×</button>
   <div class="mo-box">
-    <img class="mo-img" src="https://picsum.photos/seed/herencia26/700/300" alt="Herencia sin testamento Bolivia" loading="lazy"/>
+    <img class="mo-img" src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=700&q=80&auto=format&fit=crop&h=300" alt="Herencia sin testamento Bolivia" loading="lazy"/>
     <div class="mo-body">
       <span class="mo-tag">Sucesiones · Bolivia</span>
       <h2 class="mo-title">¿Cómo se inicia una herencia sin testamento en Bolivia?</h2>
@@ -637,7 +638,7 @@
 <div class="mo" id="bm2" onclick="closeOut(event,'bm2')" role="dialog" aria-modal="true" aria-label="Registro de marca en Bolivia">
   <button class="mo-x" onclick="closeMo('bm2')" aria-label="Cerrar">×</button>
   <div class="mo-box">
-    <img class="mo-img" src="https://picsum.photos/seed/marca26/700/300" alt="Registro de marca Bolivia SENAPI" loading="lazy"/>
+    <img class="mo-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80&auto=format&fit=crop&h=300" alt="Registro de marca Bolivia SENAPI" loading="lazy"/>
     <div class="mo-body">
       <span class="mo-tag">Propiedad Intelectual · Bolivia</span>
       <h2 class="mo-title">¿Cómo registro mi marca en Bolivia? Guía 2026</h2>
@@ -659,7 +660,7 @@
 <div class="mo" id="bm3" onclick="closeOut(event,'bm3')" role="dialog" aria-modal="true" aria-label="Contratos y tipo de cambio Bolivia 2026">
   <button class="mo-x" onclick="closeMo('bm3')" aria-label="Cerrar">×</button>
   <div class="mo-box">
-    <img class="mo-img" src="https://picsum.photos/seed/tipocambio26/700/300" alt="Contratos tipo de cambio Bolivia 2026" loading="lazy"/>
+    <img class="mo-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80&auto=format&fit=crop&h=300" alt="Contratos tipo de cambio Bolivia 2026" loading="lazy"/>
     <div class="mo-body">
       <span class="mo-tag">Derecho Comercial · Bolivia 2026</span>
       <h2 class="mo-title">¿Cómo cobrar contratos con el nuevo tipo de cambio en Bolivia?</h2>
